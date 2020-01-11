@@ -9,6 +9,9 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka
 zuul:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 20000
   prefix: /api
   routes:
     # 路由到商品的微服务
