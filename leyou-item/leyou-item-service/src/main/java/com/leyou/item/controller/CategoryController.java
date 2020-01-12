@@ -26,7 +26,7 @@ public class CategoryController {
      * @return
      */
     @GetMapping("list")
-    public ResponseEntity<List<Category>> queryCategoryByPid(@RequestParam(value = "pId", defaultValue = "0") Long pId) {
+    public ResponseEntity<List<Category>> queryCategoryByPid(@RequestParam(value = "pid", defaultValue = "0") Long pId) {
         if (pId == null || pId < 0) {
             return ResponseEntity.badRequest().build();
         }
