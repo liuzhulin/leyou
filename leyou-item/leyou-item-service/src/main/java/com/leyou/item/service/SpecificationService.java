@@ -3,6 +3,7 @@ package com.leyou.item.service;
 import com.leyou.item.mapper.SpecGroupMapper;
 import com.leyou.item.mapper.SpecParamMapper;
 import com.leyou.item.pojo.SpecGroup;
+import com.leyou.item.pojo.SpecParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,16 @@ public class SpecificationService {
         SpecGroup record = new SpecGroup();
         record.setCid(cid);
         return groupMapper.select(record);
+    }
+
+    /**
+     * 根据条件查询规格参数
+     * @param gid
+     * @return
+     */
+    public List<SpecParam> queryParam(Long gid) {
+        SpecParam record = new SpecParam();
+        record.setGroupId(gid);
+        return paramMapper.select(record);
     }
 }
