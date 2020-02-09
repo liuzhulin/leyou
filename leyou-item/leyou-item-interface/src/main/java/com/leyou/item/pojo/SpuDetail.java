@@ -2,12 +2,14 @@ package com.leyou.item.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Getter
 @Setter
+@Accessors(chain = true)
 @Table(name="tb_spu_detail")
 public class SpuDetail {
     @Id

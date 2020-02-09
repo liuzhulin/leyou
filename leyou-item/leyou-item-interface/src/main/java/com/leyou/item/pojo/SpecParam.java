@@ -2,11 +2,13 @@ package com.leyou.item.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
+@Accessors(chain = true)
 @Table(name = "tb_spec_param")
 public class SpecParam {
     @Id
