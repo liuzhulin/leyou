@@ -66,7 +66,7 @@ public class GoodsController {
     }
 
     /**
-     * 根据spuId查询sku
+     * 根据spuId查询sku集合
      * @param spuId
      * @return
      */
