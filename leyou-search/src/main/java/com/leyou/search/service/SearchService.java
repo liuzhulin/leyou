@@ -1,6 +1,5 @@
 package com.leyou.search.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.leyou.item.pojo.*;
@@ -9,17 +8,13 @@ import com.leyou.search.client.CategoryClient;
 import com.leyou.search.client.GoodsClient;
 import com.leyou.search.client.SpecificationClient;
 import com.leyou.search.pojo.Goods;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.*;
 
 @Service
@@ -98,7 +93,6 @@ public class SearchService {
         goods.setPrice(prices);
         // 获取spu下的所有sku，并转换成json字符串
         goods.setSkus(MAPPER.writeValueAsString(skuMapList));
-//        public <T> T readValue(String content, Class<T> valueType)
         //TODO 获取所有查询的规格参数{name, value}
         goods.setSpecs(null);
         return goods;
