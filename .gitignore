@@ -10,3 +10,4 @@ logs/
 /target*
 *.log*
 *.lock
+test/

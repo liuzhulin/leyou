@@ -34,7 +34,7 @@ public class LeyouSearchTest {
     private GoodsRepository goodsRepository;
 
     @Test
-    public void createIndex(){
+    public void createIndex() {
         // 创建索引
         this.elasticsearchTemplate.createIndex(Goods.class);
         // 配置映射
@@ -63,6 +63,6 @@ public class LeyouSearchTest {
             // 每次循环页码加1
             page++;
         } while (rows == 100);
-}
+    }
 
 }
