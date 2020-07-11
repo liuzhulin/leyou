@@ -38,4 +38,13 @@ public class SpecificationService {
         record.setGroupId(gid).setCid(cid).setGeneric(generic).setSearching(searching);
         return paramMapper.select(record);
     }
+
+    public List<SpecGroup> queryGroupsWithParam(Long cid) {
+        List<SpecGroup> groups = queryGroupsByCid(cid);
+        groups.forEach(group -> {
+            List<SpecParam> params = queryParam(group.getId(), null, null, null);
+            group.setParams(params);
+        });
+        return groups;
+    }
 }
