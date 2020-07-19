@@ -114,7 +114,7 @@ public class SearchService {
         goods.setPrice(prices);
         // 获取spu下的所有sku，并转换成json字符串
         goods.setSkus(MAPPER.writeValueAsString(skuMapList));
-        //TODO 获取所有查询的规格参数{name, value}
+        // 获取所有查询的规格参数{name, value}
         goods.setSpecs(specs);
         return goods;
     }
@@ -267,5 +267,15 @@ public class SearchService {
             map.put("name", names.get(0));
             return map;
         }).collect(Collectors.toList());
+    }
+
+    public void save(Long id) throws IOException {
+        Spu spu = goodsClient.querySpuById(id);
+        Goods goods = buildGoods(spu);
+        goodsRepository.save(goods);
+    }
+
+    public void delete(Long id) {
+        goodsRepository.deleteById(id);
     }
 }

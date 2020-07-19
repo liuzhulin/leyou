@@ -9,6 +9,14 @@ spring:
       cluster-nodes: 192.168.31.49:9300
   jackson:
     default-property-inclusion: non_null
+  rabbitmq:
+    host: 192.168.31.49
+    virtual-host: /leyou
+    username: leyou
+    password: leyou
+    # 若在方法上不添加交换机，则使用配置的交换机
+    template:
+      exchange: LEYOU.ITEM.EXCHANGE
 eureka:
   client:
     service-url:
