@@ -29,7 +29,7 @@ public class SmsListener {
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "LEYOU.SMS.QUEUE", durable = "true"),
             exchange = @Exchange(value = "LEYOU.SMS.EXCHANGE", ignoreDeclarationExceptions = "true", type = ExchangeTypes.TOPIC),
-            key = {"vertify_sms"}
+            key = {"vertify.sms"}
     ))
     public void sendSms(Map<String, String> msg) throws ClientException {
         if (CollectionUtils.isEmpty(msg)) {
@@ -40,6 +40,8 @@ public class SmsListener {
         if (StringUtils.isAnyBlank(phone, code)) {
             return;
         }
-        smsUtils.sendSms(phone, code, prop.getSignName(), prop.getVerifyCodeTemplate());
+//        smsUtils.sendSms(phone, code, prop.getSignName(), prop.getVerifyCodeTemplate());
+        System.out.println("phone = " + phone);
+        System.out.println("code = " + code);
     }
 }
